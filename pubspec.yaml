@@ -1,10 +1,10 @@
 name: dartnate
-description: A new Flutter package project.
-version: 0.0.1
-homepage: dartnate
+description: Package for new project dartnate
+version: 0.0.2
+repository: https://github.com/mouratocarlos/dartnate
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.16.2"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,4 +14,3 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
