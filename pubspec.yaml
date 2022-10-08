@@ -1,6 +1,6 @@
 name: dartnate
 description: Package for new project dartnate
-version: 0.0.6
+version: 0.0.20
 repository: https://github.com/mouratocarlos/dartnate
 
 environment:
@@ -8,3 +8,5 @@ environment:
 
 dependencies:
   postgres: ^2.4.3
+  mysql1: ^0.20.0
+  yaml: ^3.1.1

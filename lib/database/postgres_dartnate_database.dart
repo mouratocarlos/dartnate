@@ -1,17 +1,11 @@
+import 'package:dartnate/database/base_dartnate_database.dart';
 import 'package:postgres/postgres.dart';
 
-class PostgresConnection {
-  late final _conn;
+class PostgresDartnateDatabase extends BaseDartnateDatabase {
+  late PostgreSQLConnection _conn;
 
-  void setProperties(String server, int port, String dbName, String userName,
-      String password) {
-    _conn = PostgreSQLConnection(
-      server,
-      port,
-      dbName,
-      username: userName,
-      password: password,
-    );
+  set connection(PostgreSQLConnection connection) {
+    _conn = connection;
   }
 
   Future<PostgreSQLResult> query(String query,
