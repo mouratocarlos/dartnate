@@ -10,20 +10,38 @@ class DartnateConfiguration {
   String? _connectionDriver;
 
   DartnateConfiguration() {
-    try {
-      File file = new File('dartnate_configuration.yaml');
-      String yamlString = file.readAsStringSync();
-      Map yaml = loadYaml(yamlString)['database_connection'];
+    File file;
+    Map yaml;
 
-      _server = yaml['server'];
-      _port = yaml['port'];
-      _databaseName = yaml['database_name'];
-      _username = yaml['username'];
-      _password = yaml['password'];
-      _connectionDriver = yaml['connection_driver'];
-    } catch (_) {
-      new Exception('Could not connect to database');
+    if (File('dartnate_configuration.yaml').existsSync()) {
+      file = new File('dartnate_configuration.yaml');
+    } else {
+      throw Exception("Could not find file 'dartnate_configuration.yaml'");
     }
+
+    String yamlString = file.readAsStringSync();
+
+    try {
+      yaml = loadYaml(yamlString)['database_connection'];
+    } catch (_) {
+      throw Exception('Could not connect to database');
+    }
+
+    if (yaml['server'] == null ||
+        yaml['port'] == null ||
+        yaml['database_name'] == null ||
+        yaml['username'] == null ||
+        yaml['password'] == null ||
+        yaml['connection_driver'] == null) {
+      throw Exception('Could not connect to database');
+    }
+
+    _server = yaml['server'];
+    _port = yaml['port'];
+    _databaseName = yaml['database_name'];
+    _username = yaml['username'];
+    _password = yaml['password'];
+    _connectionDriver = yaml['connection_driver'];
   }
 
   String get server {

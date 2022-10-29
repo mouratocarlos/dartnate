@@ -1,6 +1,6 @@
 name: dartnate
 description: Package for new project dartnate
-version: 0.0.20
+version: 0.0.31
 repository: https://github.com/mouratocarlos/dartnate
 
 environment:
